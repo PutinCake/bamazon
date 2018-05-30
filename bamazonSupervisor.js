@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
     user: "root",
   
     // Your password
-    password: "",
+    password: "Shenlushan0523",
     database: "bamazonDB"
   });
 
@@ -103,7 +103,7 @@ function newDepartment() {
                 
             },function(err, data){
                 if (err) throw err;
-                console.log(data);
+                //console.log(data);
                 console.log("New department name has been added!");
           
           connection.end();

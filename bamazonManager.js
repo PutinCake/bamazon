@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
     user: "root",
   
     // Your password
-    password: "",
+    password: "Shenlushan0523",
     database: "bamazonDB"
   });
 
@@ -122,13 +122,13 @@ function addInventory(){
         .then(function(answer){
             var item = answer.productID;
             var addQuantity = answer.number; 
-            console.log(item + "================" + addQuantity);
+            //console.log(item + "================" + addQuantity);
             var queryStr = "SELECT * FROM products WHERE ?"
             connection.query(queryStr, {item_id: item}, function(err, result){
                 if(err) throw err;
                 var productData = result[0];
-                console.log(productData);
-                console.log("=======================");
+                // console.log(productData);
+                // console.log("=======================");
                 var a = productData.stock_quantity + parseInt(addQuantity);
                 
 
@@ -183,6 +183,17 @@ function addNew(){
               }
         },
         {
+            name: "newSales",
+            type: "input",
+            message: "Product sales: ",
+            validate: function(value) {
+                if (!isNaN(value)) {
+                  return true;
+                }
+                return false;
+              }
+        },
+        {
             name: "newQuantity",
             type: "input",
             message: "Quantity: ",
@@ -201,8 +212,9 @@ function addNew(){
                 product_name: answer.newName,
                 department_name: answer.newDepartment,
                 price: answer.newPrice,
+                product_sales: answer.newSales,
                 stock_quantity: answer.newQuantity
-            },function(err,){
+            },function(err){
                 if (err) throw err;
                 console.log("New Product has been added!");
 
