@@ -2,7 +2,7 @@
 
 # Node.js & MySQL
 
-###Overview
+### Overview
 
 This is an Amazon-like storefront with the MySQL skills. The app will take in orders from customers and deplete stock from the store's inventory. As a bonus task, you can program your app to track product sales across your store's departments and then provide a summary of the highest-grossing departments in the store.
 
@@ -21,7 +21,7 @@ Make sure you use the normal GitHub. Because this is a CLI App, there will be no
  * department_name
  * price (cost to customer)
  * stock_quantity (how much of the product is available in stores)
-
+![pic](bamazon/images/tableProducts.png)
 
 
  1. This database with around 10 different products. 
