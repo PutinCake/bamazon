@@ -21,7 +21,7 @@ Make sure you use the normal GitHub. Because this is a CLI App, there will be no
  * department_name
  * price (cost to customer)
  * stock_quantity (how much of the product is available in stores)
-![pic](bamazon/blob/master/images/tableProducts.png)
+![pic](https://github.com/PutinCake/bamazon/blob/master/images/tableProducts.png)
 
 
  1. This database with around 10 different products. 
