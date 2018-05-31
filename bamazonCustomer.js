@@ -18,8 +18,27 @@ var connection = mysql.createConnection({
   connection.connect(function(err){
       if (err) throw err;
        // run the start function after the connection is made to prompt the user
-      runSearch();
+       viewProducts();
   });
+
+
+
+  function viewProducts() {
+
+    connection.query("SELECT * FROM products", function(err, results){
+        console.log("Here is our products detailed list: ");
+        for(var i = 0; i < results.length; i++){
+            console.log("\x1b[32m%s\x1b[0m", 
+            "\nitem IDs: " + results[i].item_id + 
+            "|| names: " + results[i].product_name + 
+            "|| price: " + results[i].price);
+            console.log("\x1b[34m%s\x1b[0m", "--------------------------------") 
+        }
+        runSearch();
+    });
+}
+
+
 
   function runSearch(){
       console.log("\x1b[35m%s\x1b[0m", "Welcome to Bamazon!!!");
@@ -71,9 +90,9 @@ var connection = mysql.createConnection({
             var productSales = productsData.product_sales;
             var stockQuantity = productsData.stock_quantity;
             var totalPrice = productsData.price * answer.quantity;
-            console.log(productsData);
+            //console.log(productsData);
             //console.log(totalPrice);
-            console.log("--------------------------");
+            //console.log("--------------------------");
 
             if (parseInt(quantity) <= stockQuantity){
                 console.log("\x1b[32m%s\x1b[0m","Congratulation! the product you requested is in stock!");
